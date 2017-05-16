@@ -20,6 +20,7 @@ print test_target
 print clf.predict(test_data)
 
 #viz code
+
 from sklearn.externals.six import StringIO
 import pydotplus
 dot_data = StringIO()
@@ -29,5 +30,5 @@ tree.export_graphviz(clf,
 						class_names=iris.target_names,
 						filled=True, rounded=True,
 						impurity=False)
-graph = pydotplus.graph_from_dot_data(dot_data.getValue())						
-graph_write_pdf(iris.pdf)
+graph = pydotplus.graph_from_dot_data(dot_data.getvalue())						
+graph.write_pdf("iris.pdf")
